@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Design System Playground</title>
+<title>IlyaSigma111 — Design Playground</title>
+<meta name="description" content="Интерактивный песочница стилей — один UI, пять визуальных миров.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════
-   DESIGN TOKENS — Refero Style (default)
+   STYLE: Editorial (default — white serif)
    ═══════════════════════════════════════════════ */
 :root {
-  /* Colors */
   --bg: #ffffff;
   --bg-alt: #f7f8fb;
   --bg-card: #ffffff;
@@ -45,7 +45,7 @@
 }
 
 /* ═══════════════════════════════════════════════
-   STYLE: Midnight Void (dark glassmorphism)
+   STYLE: Midnight (dark glassmorphism)
    ═══════════════════════════════════════════════ */
 [data-style="midnight"] {
   --bg: #080812;
@@ -68,7 +68,7 @@
 }
 
 /* ═══════════════════════════════════════════════
-   STYLE: Brutalist Concrete
+   STYLE: Brutalist
    ═══════════════════════════════════════════════ */
 [data-style="brutalist"] {
   --bg: #e8e4de;
@@ -93,7 +93,7 @@
 }
 
 /* ═══════════════════════════════════════════════
-   STYLE: Neon Depth
+   STYLE: Neon
    ═══════════════════════════════════════════════ */
 [data-style="neon"] {
   --bg: #0a0a0f;
@@ -118,7 +118,7 @@
 }
 
 /* ═══════════════════════════════════════════════
-   STYLE: Warm Paper
+   STYLE: Paper (warm)
    ═══════════════════════════════════════════════ */
 [data-style="paper"] {
   --bg: #faf6f1;
@@ -169,9 +169,7 @@ a{color:inherit;text-decoration:none}
   background:transparent;color:var(--text-muted);
   white-space:nowrap;
 }
-.picker button.active{
-  background:var(--accent);color:var(--accent-text);
-}
+.picker button.active{background:var(--accent);color:var(--accent-text)}
 .picker button:not(.active):hover{color:var(--text);background:var(--bg-alt)}
 
 /* ─── Label ─── */
@@ -189,7 +187,9 @@ a{color:inherit;text-decoration:none}
 
 /* ─── Nav ─── */
 .nav{padding:20px 0;display:flex;align-items:center;justify-content:space-between}
-.nav-brand{font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:-.02em}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--accent-text);font-weight:800;font-size:15px;flex-shrink:0;transition:all .4s}
+.nav-name{font-family:var(--font-body);font-size:16px;font-weight:700;letter-spacing:-.02em}
 .nav-links{display:flex;gap:24px}
 .nav-links a{font-size:var(--small-size);color:var(--text-muted);font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
@@ -208,8 +208,7 @@ a{color:inherit;text-decoration:none}
   text-transform:uppercase;color:var(--text-muted);
   padding:6px 14px;border-radius:var(--radius-tag);
   background:var(--tag-bg);color:var(--tag-text);
-  margin-bottom:24px;
-  transition:all .4s;
+  margin-bottom:24px;transition:all .4s;
 }
 .hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .hero h1{
@@ -235,32 +234,53 @@ a{color:inherit;text-decoration:none}
 }
 .btn-secondary:hover{border-color:var(--text-muted);transform:translateY(-1px)}
 
-/* ─── Cards Grid ─── */
-.cards-section{padding:var(--section-gap) 0}
+/* ─── Skills Grid ─── */
+.skills-section{padding:var(--section-gap) 0}
 .section-header{margin-bottom:40px}
 .section-header h2{
   font-family:var(--font-display);font-size:var(--heading-size);
   font-weight:700;letter-spacing:-.02em;margin-bottom:8px;
 }
 .section-header p{color:var(--text-secondary);font-size:var(--body-size);max-width:480px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
-.card{
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.skill{
   background:var(--bg-card);border:1px solid var(--border);
   border-radius:var(--radius-card);padding:var(--card-padding);
   transition:all .35s cubic-bezier(.4,0,.2,1);
   box-shadow:var(--shadow-elevated);
 }
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--shadow)}
-.card-icon{
+.skill:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--shadow)}
+.skill-icon{
   width:44px;height:44px;border-radius:var(--radius-tag);
   background:var(--tag-bg);display:flex;align-items:center;justify-content:center;
   margin-bottom:16px;font-size:20px;transition:all .4s;
 }
-.card h3{font-size:18px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
-.card p{font-size:var(--small-size);color:var(--text-secondary);line-height:1.6}
-.card-tag{
+.skill h3{font-size:18px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
+.skill p{font-size:var(--small-size);color:var(--text-secondary);line-height:1.6}
+.skill-tag{
   display:inline-block;margin-top:14px;font-size:var(--caption-size);
   font-weight:600;color:var(--accent);letter-spacing:.02em;
+}
+
+/* ─── Projects ─── */
+.projects-section{padding:var(--section-gap) 0}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.project{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-card);padding:var(--card-padding);
+  transition:all .35s cubic-bezier(.4,0,.2,1);
+  box-shadow:var(--shadow-elevated);
+  display:flex;flex-direction:column;gap:12px;
+}
+.project:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--shadow)}
+.project-head{display:flex;align-items:center;justify-content:space-between}
+.project h3{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.project p{font-size:var(--small-size);color:var(--text-secondary);line-height:1.6}
+.project-stack{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.project-stack span{
+  font-size:var(--caption-size);font-weight:500;padding:3px 10px;
+  border-radius:var(--radius-tag);background:var(--tag-bg);color:var(--tag-text);
+  transition:all .4s;
 }
 
 /* ─── Stats ─── */
@@ -273,12 +293,11 @@ a{color:inherit;text-decoration:none}
 .stat:hover{transform:translateY(-3px)}
 .stat-num{
   font-family:var(--font-display);font-size:clamp(28px,4vw,42px);
-  font-weight:700;color:var(--accent);line-height:1;
-  transition:color .4s;
+  font-weight:700;color:var(--accent);line-height:1;transition:color .4s;
 }
 .stat-label{font-size:var(--caption-size);color:var(--text-muted);margin-top:8px;font-weight:500}
 
-/* ─── CTA Banner ─── */
+/* ─── CTA ─── */
 .cta{
   margin:var(--section-gap) 0;border-radius:var(--radius-card);
   background:var(--accent);color:var(--accent-text);
@@ -304,7 +323,8 @@ footer{padding:40px 0;border-top:1px solid var(--border);margin-top:var(--sectio
 
 /* ─── Responsive ─── */
 @media(max-width:800px){
-  .cards{grid-template-columns:1fr 1fr}
+  .skills{grid-template-columns:1fr 1fr}
+  .projects{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
   .cta{flex-direction:column;text-align:center}
   .nav-links{display:none}
@@ -312,95 +332,153 @@ footer{padding:40px 0;border-top:1px solid var(--border);margin-top:var(--sectio
   .picker button{padding:8px 12px;font-size:11px}
 }
 @media(max-width:540px){
-  .cards{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
 }
+
+/* ─── Reveal ─── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.reveal.shown{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 
-<div class="style-label">Refero Style</div>
+<div class="style-label">Editorial</div>
 
 <div class="picker">
-  <button class="active" onclick="setStyle('refero',this)">Refero</button>
-  <button onclick="setStyle('midnight',this)">Midnight</button>
-  <button onclick="setStyle('brutalist',this)">Brutalist</button>
-  <button onclick="setStyle('neon',this)">Neon</button>
-  <button onclick="setStyle('paper',this)">Paper</button>
+  <button class="active" onclick="setStyle('editorial',this,'Editorial')">Editorial</button>
+  <button onclick="setStyle('midnight',this,'Midnight')">Midnight</button>
+  <button onclick="setStyle('brutalist',this,'Brutalist')">Brutalist</button>
+  <button onclick="setStyle('neon',this,'Neon')">Neon</button>
+  <button onclick="setStyle('paper',this,'Paper')">Paper</button>
 </div>
 
 <div class="wrap">
 
 <!-- Nav -->
 <nav class="nav">
-  <div class="nav-brand">Refero</div>
-  <div class="nav-links">
-    <a href="#">Статьи</a>
-    <a href="#">О проекте</a>
-    <a href="#">Контакты</a>
+  <div class="nav-brand">
+    <div class="nav-logo">И</div>
+    <span class="nav-name">IlyaSigma111</span>
   </div>
-  <button class="nav-btn">Начать</button>
+  <div class="nav-links">
+    <a href="#skills">Навыки</a>
+    <a href="#projects">Проекты</a>
+    <a href="#about">Обо мне</a>
+  </div>
+  <a href="https://github.com/IlyaSigma111" target="_blank" class="nav-btn">GitHub</a>
 </nav>
 
 <!-- Hero -->
-<section class="hero">
-  <div class="hero-tag"><span class="dot"></span> Дизайн-система</div>
-  <h1>Один UI.<br>Пять стилей.</h1>
-  <p>Нажимай на кнопки внизу — смотри как меняется характер интерфейса при смене дизайн-системы.</p>
+<section class="hero reveal">
+  <div class="hero-tag"><span class="dot"></span> Design Playground</div>
+  <h1>Один интерфейс.<br>Пять миров.</h1>
+  <p>Нажимай на кнопки внизу — смотри как меняется характер UI при смене визуальной системы.</p>
   <div class="hero-actions">
-    <button class="btn-primary">Смотреть библиотеку</button>
-    <button class="btn-secondary">Скачать DESIGN.md</button>
+    <button class="btn-primary" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Смотреть</button>
+    <a href="https://github.com/IlyaSigma111/design-playground" target="_blank" class="btn-secondary">Исходник</a>
   </div>
 </section>
 
-<!-- Cards -->
-<section class="cards-section">
-  <div class="section-header">
-    <h2>Возможности</h2>
-    <p>Каждый стиль — это не просто палитра, а целая система: типографика, радиусы, тени, ритм.</p>
+<!-- Skills -->
+<section class="skills-section" id="skills">
+  <div class="section-header reveal">
+    <h2>Что умею</h2>
+    <p>Фронтенд, дизайн, бэкенд — и умение превращать идеи в работающий продукт.</p>
   </div>
-  <div class="cards">
-    <div class="card">
-      <div class="card-icon">🎨</div>
-      <h3>Палитра</h3>
-      <p>Цвета, контрасты и акценты, которые определяют характер интерфейса.</p>
-      <span class="card-tag">5 систем</span>
+  <div class="skills">
+    <div class="skill reveal">
+      <div class="skill-icon">🎨</div>
+      <h3>UI/UX Дизайн</h3>
+      <p>Прототипы, дизайн-системы, анимации. От идеи до макета.</p>
+      <span class="skill-tag">Figma · CSS</span>
     </div>
-    <div class="card">
-      <div class="card-icon">✦</div>
-      <h3>Типографика</h3>
-      <p>От editorial-серифа до моноширинного шрифта — каждый стиль имеет свой голос.</p>
-      <span class="card-tag">10+ шрифтов</span>
+    <div class="skill reveal">
+      <div class="skill-icon">⚡</div>
+      <h3>Фронтенд</h3>
+      <p>React, Next.js, Tailwind, чистый CSS. Адаптив и перфоманс.</p>
+      <span class="skill-tag">JS · HTML · CSS</span>
     </div>
-    <div class="card">
-      <div class="card-icon">◈</div>
-      <h3>Компоненты</h3>
-      <p>Кнопки, карточки, теги — визуально разные, но структурно одинаковые.</p>
-      <span class="card-tag">Сравнение</span>
+    <div class="skill reveal">
+      <div class="skill-icon">🛠</div>
+      <h3>Бэкенд</h3>
+      <p>Node.js, Python, базы данных, API. Всё что работает на сервере.</p>
+      <span class="skill-tag">Node · Python</span>
     </div>
-    <div class="card">
-      <div class="card-icon">⚡</div>
-      <h3>Анимации</h3>
-      <p>Плавные переходы между стилями для наглядного сравнения.</p>
-      <span class="card-tag">0 JS</span>
+    <div class="skill reveal">
+      <div class="skill-icon">📱</div>
+      <h3>Мобильная разработка</h3>
+      <p>Cross-platform приложения. React Native и не только.</p>
+      <span class="skill-tag">React Native</span>
     </div>
-    <div class="card">
-      <div class="card-icon">📐</div>
-      <h3>Радиусы</h3>
-      <p>От brutalist 0px до Refero 64px — форма задаёт настроение.</p>
-      <span class="card-tag">5 значений</span>
+    <div class="skill reveal">
+      <div class="skill-icon">🤖</div>
+      <h3>AI интеграции</h3>
+      <p>LLM API, автоматизация, умные боты и генерация контента.</p>
+      <span class="skill-tag">API · Боты</span>
     </div>
-    <div class="card">
-      <div class="card-icon">🔍</div>
-      <h3>Адаптив</h3>
-      <p>Работает на любом экране. Меняется сетка, но не характер.</p>
-      <span class="card-tag">Mobile-first</span>
+    <div class="skill reveal">
+      <div class="skill-icon">🌐</div>
+      <h3>Деплой</h3>
+      <p>GitHub Pages, VPS, домены, SSL. Запускаю проекты в продакшн.</p>
+      <span class="skill-tag">DevOps</span>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="projects-section" id="projects">
+  <div class="section-header reveal">
+    <h2>Проекты</h2>
+    <p>То, что я сделал и чем горжусь.</p>
+  </div>
+  <div class="projects">
+    <div class="project reveal">
+      <div class="project-head">
+        <h3>QuizKit</h3>
+        <span class="skill-tag">Живой</span>
+      </div>
+      <p>Интерактивная платформа для создания и прохождения квизов с таймером, статистикой и анимациями.</p>
+      <div class="project-stack">
+        <span>HTML</span><span>CSS</span><span>JS</span>
+      </div>
+    </div>
+    <div class="project reveal">
+      <div class="project-head">
+        <h3>Design Playground</h3>
+        <span class="skill-tag">Этот проект</span>
+      </div>
+      <p>Пять визуальных миров на одном интерфейсе. CSS custom properties, 0 зависимостей, плавные переходы.</p>
+      <div class="project-stack">
+        <span>HTML</span><span>CSS</span><span>Vanilla JS</span>
+      </div>
+    </div>
+    <div class="project reveal">
+      <div class="project-head">
+        <h3>Telegram-боты</h3>
+        <span class="skill-tag">Бэкенд</span>
+      </div>
+      <p>Автоматизация, уведомления, умные диалоги. Интеграции с API и базами данных.</p>
+      <div class="project-stack">
+        <span>Python</span><span>Node.js</span><span>API</span>
+      </div>
+    </div>
+    <div class="project reveal">
+      <div class="project-head">
+        <h3>UI/UX эксперименты</h3>
+        <span class="skill-tag">Дизайн</span>
+      </div>
+      <p>Визуальные прототипы, анимации, дизайн-системы. Поиск нового через код.</p>
+      <div class="project-stack">
+        <span>CSS</span><span>Figma</span><span>SVG</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Stats -->
-<div class="stats">
+<div class="stats reveal">
   <div class="stat">
     <div class="stat-num">5</div>
     <div class="stat-label">стилей</div>
@@ -420,21 +498,21 @@ footer{padding:40px 0;border-top:1px solid var(--border);margin-top:var(--sectio
 </div>
 
 <!-- CTA -->
-<div class="cta">
+<div class="cta reveal" id="about">
   <div>
-    <h2>Понравился стиль?</h2>
-    <p>Скопируй CSS-переменные и используй в своём проекте.</p>
+    <h2>Нужен фронтендер?</h2>
+    <p>Пиши в Telegram — обсудим проект.</p>
   </div>
-  <button class="cta-btn">Скопировать токены</button>
+  <a href="https://t.me/ntavda_today" target="_blank" class="cta-btn">Написать</a>
 </div>
 
 <!-- Footer -->
 <footer>
   <div class="footer-inner">
-    <p>Design System Playground — вдохновлено <a href="https://styles.refero.design/" target="_blank" style="color:var(--accent)">Refero Styles</a></p>
+    <p>&copy; 2026 IlyaSigma111. Сделано с нуля.</p>
     <div class="footer-links">
-      <a href="#">GitHub</a>
-      <a href="#">Telegram</a>
+      <a href="https://github.com/IlyaSigma111" target="_blank">GitHub</a>
+      <a href="https://t.me/ntavda_today" target="_blank">Telegram</a>
     </div>
   </div>
 </footer>
@@ -442,19 +520,16 @@ footer{padding:40px 0;border-top:1px solid var(--border);margin-top:var(--sectio
 </div>
 
 <script>
-const labels = {
-  refero: 'Refero Style',
-  midnight: 'Midnight Void',
-  brutalist: 'Brutalist Concrete',
-  neon: 'Neon Depth',
-  paper: 'Warm Paper'
-};
-function setStyle(name, btn) {
-  document.documentElement.setAttribute('data-style', name === 'refero' ? '' : name);
+function setStyle(name, btn, label) {
+  document.documentElement.setAttribute('data-style', name === 'editorial' ? '' : name);
   document.querySelectorAll('.picker button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelector('.style-label').textContent = labels[name];
+  document.querySelector('.style-label').textContent = label;
 }
+const io = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('shown'); io.unobserve(x.target) } })
+}, { threshold: .06 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
